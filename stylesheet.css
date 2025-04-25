@@ -1298,6 +1298,10 @@ audio {
         border-color: #fff;
         color: #fff;
         background-color: #466baf;
+	    .message {
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 20px;
     }
 
 
