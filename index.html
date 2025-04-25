@@ -6,6 +6,7 @@
 <!--[if !IE]><!-->
 <html lang="en">
 <!-- <![endif]-->
+
 <head>
   <title>Happy Birthday Aarti</title>
   <meta charset="UTF-8" />
@@ -28,13 +29,13 @@
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link rel="stylesheet" type="text/css" href="loading.css">
   <link href='http://fonts.googleapis.com/css?family=Signika' rel='stylesheet' type='text/css'>
-  <!-- <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'> -->
   <link rel="stylesheet/less" href="cake.less">
   <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script>
   <!-- New: Canvas Confetti Library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <!-- New: Fireworks JS Library -->
   <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.4.0/dist/index.umd.min.js"></script>
+
   <!-- Additional inline CSS for Cake and Candle Effects -->
   <style>
     /* Hide the cake initially */
@@ -56,8 +57,46 @@
     body { 
       padding-bottom: 70px; /* Adjust if necessary */
     }
+    
+    /* Add the CSS for interactive message */
+    .interactive-message {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 20px;
+    }
+
+    .message-box {
+      background-color: #F2B300;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1.2em;
+      transition: background-color 0.3s;
+    }
+
+    .message-box:hover {
+      background-color: #D98F00;
+    }
+
+    .hidden-message {
+      display: none; /* Hide the message initially */
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #FFEB3B;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      font-size: 1.2em;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
   </style>
 </head>
+
 <body>
   <div class="loading"></div>
   <audio class="song" controls loop>
@@ -70,7 +109,6 @@
   <div class="balloons text-center" id="b2"><h2 style="color:#0719D4;">A</h2></div>
   <div class="balloons text-center" id="b3"><h2 style="color:#D14D39;">R</h2></div>
   <div class="balloons text-center" id="b4"><h2 style="color:#8FAD00;">T</h2></div>
-  i
   <div class="balloons text-center" id="b5"><h2 style="color:#8377E4;">I</h2></div>
   <img src="Balloon-Border.png" width="100%" class="balloon-border">
   
@@ -163,95 +201,42 @@
         <p>that you experience today</p>
         <p>fill it with your most beautiful smile</p>
         <p>and make it the best memory..</p>
-        <p>and always keep smiling no matter what..</p>
-        <p>i'll always be there for you..</p>
-        <p>May this birthday bring you all the joy, love, and calm you bring to me every day.</p>
-        <p>Sorry for being the reason your blood pressure goes up. But in my defense, your angry face is kinda cute."</p>
-        <p>lastly...</p>
-        <p>I'd like to wish you one more time</p>
-        <p>Happy Birthday to the only person who can make my heart race</p>
-        <p>and tolerates my nonsense like a true queen.</p>
+        <p>and always keep smiling no matter what</p>
       </div>
     </div>
   
-    <div class="navbar navbar-fixed-bottom">
-      <div class="row">
-        <div class="col-md-6 text-center col-md-offset-3">
-          <button class="btn btn-primary" id="turn_on">Turn On Lights</button>
-          <button class="btn btn-primary" id="play">Play Music</button>
-          <button class="btn btn-primary" id="bannar_coming">Let's Decorate</button>
-          <button class="btn btn-primary" id="balloons_flying">Fly With Balloons</button>
-          <!-- Cake and Candle Buttons -->
-          <button class="btn btn-primary" id="cake_fadein">Most Delicious Cake Ever</button>
-          <button class="btn btn-primary" id="light_candle">Light Candle</button>
-          <button class="btn btn-primary" id="wish_message">Happy Birthday</button>
-          <button class="btn btn-primary" id="story">A mesage for you</button>
-          <!-- <button class="btn btn-primary" id="cake_cut">Lrt's Cut the Cake</button> -->
-        </div>
-      </div>
+    <!-- Interactive message -->
+    <div class="interactive-message">
+      <div class="message-box" onclick="showMessage()">Click here for a surprise message!</div>
+      <div class="hidden-message" id="hiddenMessage">Surprise! This message is as sweet as the birthday cake!</div>
     </div>
   </div>
   
-  <!-- New container for Fireworks (generated dynamically if needed) -->
-  <div id="fireworks-container" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:1000;"></div>
-  
-  <!-- Include existing scripts and jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-  <script src="effect.js"></script>
-  <!-- Google Analytics Script -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
-    (function(i,s,o,g,r,a,m){
-      i['GoogleAnalyticsObject']=r;
-      i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},
-      i[r].l=1*new Date();
-      a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];
-      a.async=1;
-      a.src=g;
-      m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-58229732-1', 'auto');
-    ga('send', 'pageview');
+    function showMessage() {
+      var message = document.getElementById("hiddenMessage");
+      message.style.display = "block";
+    }
   </script>
-  
-  <!-- Inline Script for Enhanced Animations -->
+
+  <!-- Add fireworks effect -->
   <script>
-    $(document).ready(function() {
-      // Initialize fireworks using the fireworks-js library
-      const fireworksContainer = document.getElementById('fireworks-container');
-      const fireworks = new Fireworks.default(fireworksContainer, {
-        rocketsPoint: { min: 0, max: 100 },
-        hue: { min: 0, max: 360 },
-        delay: { min: 15, max: 30 },
-        speed: 2,
-        acceleration: 1.05,
-        friction: 0.95,
-        gravity: 1.5,
-        particles: 50,
-        trace: 3,
-        explosion: 5
-      });
-      fireworks.stop();
-      
-      // Trigger confetti and fireworks on "Happy Birthday" button click
-      $("#wish_message").click(function(){
-        confetti({ particleCount: 200, spread: 70, origin: { y: 0.6 } });
-        fireworks.start();
-        setTimeout(function(){
-          fireworks.stop();
-        }, 5000);
-      });
-      
-      // Show the cake when the cake button is pressed
-      $("#cake_fadein").click(function(){
-        $(".cake-cover").fadeIn("slow");
-      });
-      
-      // Light the candle by adding a "lit" class on each flame element
-      $("#light_candle").click(function(){
-        $(".velas .fuego").addClass("lit");
-      });
+    var fireworks = new Fireworks({
+      target: document.body,
+      hue: 120,
+      speed: 4,
+      particles: 100,
+    });
+    fireworks.start();
+  </script>
+
+  <!-- Confetti Effect -->
+  <script>
+    confetti({
+      particleCount: 100,
+      spread: 160,
+      origin: { y: 0.7 }
     });
   </script>
 </body>
