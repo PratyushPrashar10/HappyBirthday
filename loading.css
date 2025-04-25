@@ -115,5 +115,9 @@
     -ms-transform: rotate(360deg);
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
+    .message {
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 20px;
   }
 }
