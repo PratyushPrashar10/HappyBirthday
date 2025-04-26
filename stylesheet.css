@@ -1304,11 +1304,6 @@ audio {
   padding: 20px;
     /* Existing styles (you can leave them as they are) */
 
-/* Styles for the interactive message */
-.interactive-message {
-  text-align: center;
-  margin-top: 50px;
-  font-size: 20px;
 }
 
 .message-box {
@@ -1325,15 +1320,6 @@ audio {
   background-color: #D98F00;
 }
 
-.hidden-message {
-  display: none; /* Hide the message initially */
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #FFEB3B;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  font-size: 1.2em;
-  animation: fadeIn 2s ease-in-out;
 }
 
 @keyframes fadeIn {
